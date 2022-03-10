@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+## Inspiration
+As the Hackathon Requirement :
+* Allow the user to login with their Polygon wallet.
+* Use bundlr  network to allow users to deploy content with their MATIC tokens.
+* Use of specific tags for the transaction, this will allow you to grab these transactions.
+* Show the submitted transactions to the end user.
+After that we planed what to do ! and how to do!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Statement by Polygon
+Traditional centralized data storage is the cornerstone of Web 2.0 and a huge industry. A number of projects including FileCoin, Storj and Sia have sprung up to develop a crypto-native pay-as-you-go storage alternative. What sets Arweave apart is that its users pay a one-time upfront fee to store the data in perpetuity, a feat made possible with a new economic model that incentivizes miners to replicate data and blockchain innovations such as Blockweave and Proof of Access.
 
-## Available Scripts
+## What it does
+Basically this is a react-typescript based web-application that allow user to upload text and documents to the Arweave through the bundlr network using the matic (polygon) token.
 
-In the project directory, you can run:
+## What is polygon ?
+* Polygon is a secondary scaling solution for the Ethereum blockchain. 
+* These types of solutions work on top of an existing blockchain network rather than using their own blockchain. 
+* In this instance, Polygon works on top of Ethereum which has become slow and expensive to use as it becomes ever more popular.
 
-### `npm start`
+## What is Bundlr ?
+* Bundlr allows developers to access permanent data storage with instant and guaranteed transaction finality. 
+* Bundlr acts as a decentralised caching layer allowing data to be retrievable instantly.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## What is arweave ?
+* Arweave is a new type of technology that uses a form of database to store data that cannot be deleted or changed, and uses economics to incentive people to store the data for long periods of time for the first time ever.
+* This combination makes either public or private data permanent.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How we built it
+we build it using the previous mentioned .(Polygon,Arweave,Bundlr)
 
-### `npm test`
+## How to use
+* Connect Metamask or WalletConnect (ensure your wallet is connected to Polygon mainnet (chain-137)).
+* Provide address of the bundlr network node to connect to and sign the requested message to initiate bundlr network connection.
+* Click "Get Matic Balance" to view your current balance with the selected bundlr network node.
+* To fund enter an amount (in MATIC) then click fund button.
+* To Select image file from your device to upload to the network Click "Upload to Bundlr Network" and sign the requested message to initiate an upload.
+* Same you can write and upload text also.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Accomplishments that we're proud of
+We spend more than 30hours to build this project and finally we got success. we built it in very carefully many errors comes times to times.
 
-### `npm run build`
+## What we learned
+we learnt about the bundlr.network and arweave works.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What's next for Polygon Bundlr Web-app
+we are planing to built or modify that website like having all features .

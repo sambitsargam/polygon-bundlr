@@ -29,6 +29,9 @@
     "web-vitals": "^2.1.4",
     "web3modal": "^1.9.5"
   },
+  "browser": {
+    "crypto": false
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

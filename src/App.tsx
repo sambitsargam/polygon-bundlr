@@ -179,7 +179,7 @@ function App() {
           toast({
             status: "success",
             title: `Withdrawal successful - ${data.data?.tx_id}`,
-            duration: 5000,
+            duration: 15000,
           });
         })
         .catch((err: any) => {
@@ -187,7 +187,7 @@ function App() {
             status: "error",
             title: "Withdrawal Unsuccessful!",
             description: err.message,
-            duration: 5000,
+            duration: 15000,
           });
         });
     }

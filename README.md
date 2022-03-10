@@ -4,7 +4,7 @@ As the Hackathon Requirement :
 * Use bundlr  network to allow users to deploy content with their MATIC tokens.
 * Use of specific tags for the transaction, this will allow you to grab these transactions.
 * Show the submitted transactions to the end user.
-After that we planed what to do ! and how to do!
+### After that we planed what to do ! and how to do!
 
 ## Statement by Polygon
 Traditional centralized data storage is the cornerstone of Web 2.0 and a huge industry. A number of projects including FileCoin, Storj and Sia have sprung up to develop a crypto-native pay-as-you-go storage alternative. What sets Arweave apart is that its users pay a one-time upfront fee to store the data in perpetuity, a feat made possible with a new economic model that incentivizes miners to replicate data and blockchain innovations such as Blockweave and Proof of Access.

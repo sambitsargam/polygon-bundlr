@@ -30,9 +30,9 @@ function App() {
 
   const toast = useToast();
   const intervalRef = React.useRef<number>();
-  const [txt, settext] = React.useState<string>("test");
-  const [txtPrice, settextPrice] = React.useState<BigNumber>();
-//author@sambitsargam
+  const [txt, setTxt] = React.useState<string>("test");
+  const [txtPrice, setTxtPrice] = React.useState<BigNumber>();
+//author@sambitsargam	
   const clean = async () => {
     clearInterval(intervalRef.current);
     setBalance(undefined);
@@ -57,8 +57,7 @@ function App() {
     });
     fileInputEl.click();
   };
-//author@sambitsargam
-
+//author@sambitsargam	
   const handleUpload = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     let files = evt.target.files;
     let reader = new FileReader();
@@ -82,16 +81,15 @@ function App() {
       setPrice(price?.toString());
     }
   };
-//author@sambitsargam
-
-  const handletextPrice = async () => {
+//author@sambitsargam	
+  const handleTxtPrice = async () => {
     if (txt) {
       const price = await bundler?.utils.getPrice(
         currency as string,
         Buffer.from(txt, "utf8").length
       );
       //@ts-ignore
-      setTextPrice(price?.toString());
+      setTxtPrice(price?.toString());
     }
   };
 
@@ -105,8 +103,8 @@ function App() {
               res?.status === 200 || res?.status === 201 ? "success" : "error",
             title:
               res?.status === 200 || res?.status === 201
-                ? "Successful!"
-                : `Unsuccessful! ${res?.status}`,
+                ? "Congradulation! Successful!"
+                : `⚠️Unsuccessful! ${res?.status}`,
             description: res?.data.id
               ? `https://arweave.net/${res.data.id}`
               : undefined,
@@ -115,18 +113,17 @@ function App() {
           console.log("uploaded tx id is " + res.data.id);
         })
         .catch(e => {
-          toast({ status: "error", title: `Failed to upload - ${e}` });
+          toast({ status: "error", title: `Sorry Failed to upload - ${e}` });
         });
     }
   };
-//author@sambitsargam
-
-  const uploadtext = async () => {
+//author@sambitsargam	
+  const uploadTxt = async () => {
     if (txt) {
       await bundler?.uploader
         .upload(Buffer.from(txt, "utf8"), [
           { name: "Content-Type" , value: txt },
-        ]) 
+        ]) // transfer txt to buffer.
         .then(res => {
           toast({
             status:
@@ -134,7 +131,7 @@ function App() {
             title:
               res?.status === 200 || res?.status === 201
                 ? "Successful!"
-                : `Unsuccessful! ${res?.status}`,
+                : `⚠️Unsuccessful! ${res?.status}`,
             description: res?.data.id
               ? `https://arweave.net/${res.data.id}`
               : undefined,
@@ -142,12 +139,11 @@ function App() {
           });
         })
         .catch(e => {
-          toast({ status: "error", title: `Failed to upload - ${e}` });
+          toast({ status: "error", title: `⚠️Sorry Failed to upload - ${e}` });
         });
     }
   };
-//author@sambitsargam
-
+//author@sambitsargam	
   const fund = async () => {
     if (bundler && fundAmount) {
       toast({ status: "info", title: "Funding...", duration: 15000 });
@@ -166,7 +162,7 @@ function App() {
         .catch(e => {
           toast({
             status: "error",
-            title: `Failed to fund - ${e.data?.message || e.message}`,
+            title: `⚠️Sorry Failed to fund - ${e.data?.message || e.message}`,
           });
         });
     }
@@ -211,8 +207,8 @@ function App() {
     setWithdrawAmount(evt.target.value);
   };
 
-  const updatetext = (evt: React.BaseSyntheticEvent) => {
-    settext(evt.target.value);
+  const updateTxt = (evt: React.BaseSyntheticEvent) => {
+    setTxt(evt.target.value);
   };
 
   const connectWeb3 = async (connector: any) => {
@@ -270,12 +266,6 @@ function App() {
     },
   } as any;
 
-  /**
-   * initialises the selected provider/currency
-   * @param cname currency name
-   * @param pname provider name
-   * @returns
-   */
   const initProvider = async () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -289,13 +279,13 @@ function App() {
 
     const pname = selection as string;
     const cname = currency as string;
-    const p = providerMap[pname]; 
+    const p = providerMap[pname]; // get provider entry
     const c = currencyMap[cname];
     console.log(`loading: ${pname} for ${cname}`);
     const providerInstance = await p(c.opts).catch((e: Error) => {
       toast({
         status: "error",
-        title: `Failed to load provider ${pname}`,
+        title: `⚠️Failed to load provider ${pname}`,
         duration: 10000,
       });
       console.log(e);
@@ -510,7 +500,7 @@ function App() {
 
           <HStack>
             <Textarea
-              onChange={updatetext}
+              onChange={updateTxt}
               style={{ minHeight: "80px", marginTop: "5px", width: "400px" }}
             ></Textarea>
           </HStack>
@@ -519,7 +509,7 @@ function App() {
             w={1000}
             style={{ display: "flex", justifyContent: "center" }}
           >
-            <Button w={300} onClick={handletextPrice}>
+            <Button w={300} onClick={handleTxtPrice}>
               Get Price
             </Button>
             {txtPrice && (
@@ -530,8 +520,8 @@ function App() {
               </Text>
             )}
           </HStack>
-          <Button w={300} onClick={uploadtext}>
-            Upload Text to the Bundlr Network
+          <Button w={300} onClick={uploadTxt}>
+            Upload Text to Bundlr Network
           </Button>
         </>
       )}

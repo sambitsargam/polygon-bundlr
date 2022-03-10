@@ -156,7 +156,7 @@ function App() {
             status: "success",
             title: `Funded ${res?.target}`,
             description: ` tx ID : ${res?.id}`,
-            duration: 10000,
+            duration: 12000,
           });
         })
         .catch(e => {
